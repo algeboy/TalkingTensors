@@ -1,0 +1,105 @@
+\documentclass[12pt,twoside,letterpaper]{memoir}
+
+\usepackage{import}
+\input{tex-preambles/Content.tex}
+\input{tex-preambles/tikz-sets.tex}
+\input{tex-preambles/math-preambles.tex}
+\input{tex-preambles/listings-preamble.tex}
+
+
+\begin{document}
+
+\author{James B. Wilson}
+\title{Algebra for Outsiders}
+\date{\today}
+
+%% TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{minipage}{\textwidth}
+      \noindent
+      {\titlefont Talking Tensors}\par
+      \epigraph{A short coarse on tensors}%
+      {\today}
+      \null\vfill
+      \vspace*{1cm}
+      \noindent
+      \hfill
+      \begin{minipage}{0.35\linewidth}
+            \begin{flushright}
+            James B. Wilson \vspace{50pt}\\
+            Department of Mathematics \\
+            Colorado State University\vspace{100pt} \\
+            {\small \texttt{James.Wilson@ColoState.Edu}}\vspace{20pt} \\      
+            \end{flushright}
+      \end{minipage}
+      %
+      \begin{minipage}{0.02\linewidth}
+            \rule{1pt}{125pt}
+      \end{minipage}
+      \titlepagedecoration
+      \end{minipage}
+
+      \thispagestyle{empty}
+      \newpage\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\topskip0pt
+\vspace*{\fill}
+
+
+\vspace*{\fill}\thispagestyle{empty}
+
+
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% README README README README README
+%%
+%% File wont show when building? is it in the \includeonly above?????
+%%
+
+\topskip0pt
+\vspace*{\fill}
+
+\bigskip
+James.Wilson@ColoState.Edu
+\bigskip
+
+\noindent CC-BY v. 4.0, James B. Wilson.  
+
+\vspace*{\fill}
+\newpage
+%
+\cleardoublepage
+
+
+\tableofcontents
+\cleardoublepage
+
+
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{1-distribute.tex}
+
+
+\backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliographystyle{plain}
+% \bibliography{bibliography/tensor_biblio}
+
+
+
+\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+
+
+
