@@ -543,7 +543,7 @@ Now we get to tame the algebra.
     \begin{align*}
         (u\equiv \acute{u} \pmod{V^{\top}}) & \Leftrightarrow (\forall v\in V)(u*v=\acute{u}*v)\\
         (v\equiv \acute{v} \pmod{U^{\bot}}) & \Leftrightarrow (\forall u\in U)(u*v=u*\acute{v})\\
-        W^+ & := U*V=\text{Fr}_{+,0}\langle u*v \mid u\in U, v\in V\rangle
+        U*V & := \text{Fr}_{+,0}\langle u*v \mid u\in U, v\in V\rangle
     \end{align*}
     When necessary we denoted equivalence classes $u/{V^{\bot}}$ and etc.
 \end{definition}
@@ -554,7 +554,7 @@ Now we get to tame the algebra.
         \item $*:U/V^{\top} \times V\bmto W$
         \item $*:U \times V/U^{\bot}\bmto W$
         \item $*:U \times V\bmto W^+$
-        \item $*:U/V^{\top} \times V/U^{\bot}\bmto W^+$
+        \item $*:U/V^{\top} \times V/U^{\bot}\bmto U*V$
     \end{itemize}
 \end{proposition}
 \begin{proof}
@@ -608,8 +608,8 @@ Now imagine the distributive law was present along side an existing subtraction.
 Then the following would be a consequence.
 \begin{align*}
     (a-b)*(c-d) & = (a*(c-d))-(b*(c-d))
-        = (a*c-a*d)-(b*d-b*d)\\
-        & =(a*c+b*d)-(a*d+b*d)
+        = (a*c-a*d)-(b*c-b*d)\\
+        & =(a*c+b*d)-(a*d+b*c)
 \end{align*}
 This should explain the following extension.
 
@@ -623,3 +623,31 @@ This should explain the following extension.
     \end{gather*}
     In particular $(-u)*v=-(u*v)=u*(-v)$.
 \end{corollary}
+
+Let us stand back to see what we have built.
+
+\begin{center}
+    \begin{tikzcd}
+        U\arrow[d,two heads] &[\elastic] 
+        \times &[\elastic]
+        V\arrow[d,two heads] \arrow[r,"*",tail] &
+        W & (\text{Additive algebras})
+      \\
+        U/V^{\top}\arrow[d] &
+        \times &
+        V/U^{\bot}\arrow[d] \arrow[r,"\bullet",tail] &
+        U*V\arrow[u,hook,"h"]\arrow[d]
+        & (\text{Commonoids})\\
+        \Gr(U/V^{\top}) &
+        \times &
+        \Gr(V/U^{\bot}) \arrow[r,"\bullet",tail] &
+        \Gr(U*V)
+        & (\text{Abelian Groups})
+      \end{tikzcd}
+    % \begin{tikzcd}
+    %     $U$ &[\elastic] $\times$ &[\elastic] $V$ \arrow[tail,r] & $W$\\
+    % \end{tikzcd}
+\end{center}
+It is not a mistake that in the last component the arrows are not aligned.
+This is actually a symptom of an unresolved problem in the study of tensors.
+They do not lie in a single category.  
