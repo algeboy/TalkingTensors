@@ -26,7 +26,7 @@ Start with area.
 
 \end{tikzpicture}
 \end{center}
-So area $A(\ell,h)$ distributes.
+So area as  function $A(w,h)$ of width and height distributes over those parameters.
 \begin{align*}
     A(w+\hat{w},h) &= A(w,h)+A(\hat{w},h)
     &    A(w,h+\hat{h}) &= A(w,h)+A(w,\hat{h})
@@ -64,12 +64,12 @@ Work distributes, both over workers and over time.
 Well all this is at least true for some range of values.  All scientific
 claims of connection to reality are true only for sensible regions of values.
 
-Imagine next the ingredient list 
-$\text{Supplies}(r)$ of recipe $r$.  If we need to shop for ingredients of two recipes 
-$r$ and $\acute{r}$ then 
-\[
-    \text{Supplies}(r+\acute{r})=\text{Supplies}(r)+\text{Supplies}(\acute{r}).
-\]
+% Imagine next the ingredient list 
+% $\text{Supplies}(r)$ of recipe $r$.  If we need to shop for ingredients of two recipes 
+% $r$ and $\acute{r}$ then 
+% \[
+%     \text{Supplies}(r+\acute{r})=\text{Supplies}(r)+\text{Supplies}(\acute{r}).
+% \]
 Need to print the names of both faculty and graduate students. 
 You could distribute that work as well, as seen in Listing~\ref{lst:distributive},
 the command \code{Print} distributes over the operator of concatenation \code{cat}
@@ -108,7 +108,7 @@ background.  These examples however might remind you of the connections to
 concrete problems and help you communicate across the sciences and perhaps 
 even to your friends and family who wonder what you do.
 
-\subsection{Axes and valence}
+\subsection{Notations}
 
 By custom, area $A(\ell,w)$ of rectangle is denoted $\ell \cdot w$, called
 multiplication, and the distributive law takes its form:
@@ -141,6 +141,7 @@ or functions on the outside like these
     /u,v/,\ldots~.
 \]
    
+\subsection{Axes and valence}
 Just, as area distributes, so does volume $V(\ell,w,h)$ only with one more axis.
 \begin{center}
     \textbf{[TBD: a tikz picture of three volumes showing three axes of distributive volume]}
@@ -293,7 +294,84 @@ satisfy the following identity.
 \end{equation}
 
 \begin{proposition}
-    If $+$ in both associative and commutative then it is distributable.
+    If $+$ is both associative and commutative then it is distributable.
+    Furthermore, such an addition can be extended to have at $0$.
 
-    Conversely, if $+$ is 
+    Conversely, if $+$ is distributable and has a $0$ then $+$ is associative 
+    and commutative.
 \end{proposition}
+\begin{proof}
+    TBD
+\end{proof}
+
+\subsection{Algebra you were told to forget}
+We are in a territory where we are assuming very little about our addition 
+and we may even include structures like addition of vector spaces, which are 
+not in a technical sense sets.  This causes no trouble.  Algebra predates sets 
+(think of Boolean, Heyting and de Morgan algebra) and outlasts sets (think 
+of categories).  So what is algebra with sets?  For that we go back to grammar school.
+
+We want additive structures so we use $+$ and we want that be $x+y$ not stranger 
+styles like $+x~y$ or \code{add(x,y)} which have the place but not here.
+To feel sophisticated about this we could report that we have the following 
+grammar:
+\begin{center}
+\begin{lstlisting}
+<A>::= (<A>+<A>) | 0
+\end{lstlisting}   
+\end{center}
+where $|$ indicates ``or'' and so we can add or use $0$.  If we do not want 
+$0$ in our addition we just remove it; likewise, if wish to add something like 
+negatives we can add this as well as in the following.
+\begin{center}
+\begin{lstlisting}
+<An>::= (<AN>+<AN>) | 0 | -<AN>
+\end{lstlisting}   
+\end{center}
+
+
+We will want some formulas.  So we add variables, 
+for examples to add $X=\{x,y,z\}$ as variables we use
+\begin{center}
+\begin{lstlisting}
+   <X> ::= x | y 
+<A<X>> ::= <X> | 0 |(<A<X>>+<A<X>>)      
+\end{lstlisting}
+\end{center}
+
+
+Strings $\Phi:=\Phi(X)$ that prase in this grammar are called \emph{additive formulas} 
+and annotated $\Phi:\text{Fr}_{A}\langle X\rangle$.  For example 
+$((x+0)+y):\text{Fr}_A\langle x,y\rangle$, 
+but not $+xy$ because that does not match the pattern in the grammar.
+
+Given an additive structure $W$ and assignment of variables $w_X:W^X$
+we can substitute into a formula $\Phi(X)$ the values $w_X$ formula 
+a list of operations to carry out in $W$ called \emph{evaluation} and denoted 
+$\Phi(w_X)$.  For example $\Phi(x,y)=((x+0)+y)$ and $W=\mathbb{N}$ then 
+$\Phi(2,3)=((2+0)+3)=5$.  
+
+Now given an additive algebra $W$ and a function $S:I\to W$, then 
+the evaluations $\Phi(s_*)$ are said to have type 
+\begin{align*}
+    \text{Fr}_{+,0}\langle S\rangle 
+\end{align*}
+We say that $\text{Fr}_{+,0}\langle S\rangle$ is the subalgebra generated 
+by $S$.
+
+\subsection{Distributable}
+\begin{definition}
+    Given a distributive product $*:U\times V\bmto W$
+    let 
+    \[
+        U*V=\text{Fr}_{+,0}\langle u*v \mid u\in U, v\in V\rangle
+    \]
+\end{definition}
+
+\begin{proposition}
+    Given a distributive product $*:U\times V\to W$ then 
+    $U/V^{\bot}$, $V/U^{\top}$ and $W^+=U*V$ are commonoids
+\end{proposition}
+\begin{proof}
+    TBD
+\end{proof}
